@@ -1,6 +1,6 @@
 # docker-grpc-gateway
 
-Dockerfile for [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway).
+Dockerfile for [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway) and golang.
 
 ## Note
 
