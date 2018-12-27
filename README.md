@@ -5,7 +5,7 @@ Dockerfile for [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway).
 ## Note
 
 [golang/protobuf](https://github.com/golang/protobuf) has an issue: [#763](https://github.com/golang/protobuf/issues/763).  
-Until the issue fixed, use `downgrade-proto` branch.
+Until the issue fixed, use [`downgrade-proto`](https://github.com/micnncim/docker-grpc-gateway/tree/downgrade-proto) branch.
 
 ## Setup
 
@@ -17,7 +17,7 @@ e.g.)
 $ sed -i -e 's/arriv/micnncim/g' -e 's/gilgamesh-api/docker-grpc-gateway/g' Dockerfile
 ```
 
-1. Set your Dockerfile ENV: `PROTO_API_FILES` `PROTO_GO_OUT`
+2. Set your Dockerfile ENV: `PROTO_API_FILES` `PROTO_GO_OUT`
 
 default:
 
