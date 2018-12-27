@@ -5,7 +5,7 @@ Dockerfile for [grpc-gateway](https://github.com/grpc-ecosystem/grpc-gateway).
 ## Note
 
 [golang/protobuf](https://github.com/golang/protobuf) has an issue: [#763](https://github.com/golang/protobuf/issues/763).  
-Until the issue fixed, use `` branch.
+Until the issue fixed, use `downgrade-proto` branch.
 
 ## Setup
 
