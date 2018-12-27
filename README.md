@@ -14,7 +14,7 @@ Until the issue fixed, use [`downgrade-proto`](https://github.com/micnncim/docke
 e.g.)
 
 ```sh
-$ sed -i -e 's/<REPOSITORY_OWNER>/micnncim/g' -e 's/<REPOSITORY_NAME>/docker-grpc-gateway/g' Dockerfile
+$ sed -i -e 's/micnncim/<REPOSITORY_OWNER>/g' -e 's/docker-grpc-gateway/<REPOSITORY_NAME>/g' Dockerfile
 ```
 
 2. Set your Dockerfile ENV: `PROTO_API_FILES` `PROTO_GO_OUT`
