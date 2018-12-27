@@ -30,6 +30,18 @@ RUN go get -u -v -ldflags '-w -s' \
     github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
     github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 
+# downgrade for https://github.com/golang/protobuf/issues/763
+RUN cd ${GOPATH}/src/github.com/golang/protobuf/protoc-gen-go && \
+    git checkout v${PROTOC_GEN_GO_VERSION} && \
+    go install && \
+    git checkout master
+
+# downgrade for https://github.com/golang/protobuf/issues/763
+RUN cd ${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway && \
+    git checkout v${PROTOC_GEN_GRPC_GATEWAY_VERSION} && \
+    go install && \
+    git checkout master
+
 WORKDIR /go/src/github.com/micnncim/docker-grpc-gateway
 RUN go get github.com/golang/dep/cmd/dep
 COPY Gopkg.toml Gopkg.lock ./
