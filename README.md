@@ -17,12 +17,12 @@ e.g.)
 $ sed -i -e 's/micnncim/<REPOSITORY_OWNER>/g' -e 's/docker-grpc-gateway/<REPOSITORY_NAME>/g' Dockerfile
 ```
 
-2. Set your Dockerfile ENV: `PROTO_API_FILES` `PROTO_GO_OUT`
+2. Set your Dockerfile ENV: `PROTO_FILES` `PROTO_GO_OUT`
 
 default:
 
 ```
-ENV PROTO_API_FILES=./proto/api/*.proto \
+ENV PROTO_FILES=./proto/*.proto \
     PROTO_GO_OUT=./src
 ```
 
