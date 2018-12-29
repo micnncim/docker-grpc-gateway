@@ -5,7 +5,7 @@ ENV PROTOBUF_VERSION=3.6.1 \
     PROTOC_GEN_GRPC_GATEWAY_VERSION=1.5.1
 ENV GOPATH=/go \
     PATH=/go/bin/:$PATH
-ENV PROTO_API_FILES=./proto/api/*.proto \
+ENV PROTO_FILES=./proto/*.proto \
     PROTO_GO_OUT=./src
 
 RUN apk add --no-cache \
@@ -53,12 +53,12 @@ RUN protoc -I/protobuf -I. \
     -I${GOPATH}/src \
     -I${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
     --go_out=plugins=grpc:${PROTO_GO_OUT} \
-    ${PROTO_API_FILES}
+    ${PROTO_FILES}
 RUN protoc -I/protobuf -I. \
     -I${GOPATH}/src \
     -I${GOPATH}/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
     --grpc-gateway_out=logtostderr=true:${PROTO_GO_OUT} \
-    ${PROTO_API_FILES}
+    ${PROTO_FILES}
 RUN CGO_ENABLED=0 GOOS=linux go build -o /go/bin/docker-grpc-gateway \
     -ldflags="-w -s" -v \
     github.com/micnncim/docker-grpc-gateway
